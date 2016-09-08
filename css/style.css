@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.avatar{
+    background-color:  azure;
+    background-image: url();  
+    background-size: cover;
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+}
+li{
+    margin: 5px;
+    font-size: 12pt; 
+    overflow: hidden;
+}
+button{
+    margin: 5px;
+}
+.info{
+    list-style-type: none;
+    padding: 0;
+}
+.addInfo{
+    float: right;
+}
+.posts{
+    padding-top: 10px;
+    margin-top: 20px;
+/*    border: 1px solid yellow;*/
+/*    border-bottom: 1px solid yellow;*/
+}
+
+.post{
+    border: 2px solid chocolate;
+    border-radius: 5px;
+}
+.message{
+}
+.post div{
+    background-color: burlywood;
+    padding: 5px;
+}
+
+
+.friends{
+    height: 300px;
+    overflow: auto;
+}
