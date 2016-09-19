@@ -1,50 +1,44 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-.avatar{
-    background-color:  azure;
-    background-image: url();  
-    background-size: cover;
-    height: 300px;
-    width: 300px;
-    margin: 10px;
+
+body {
+    background: #5DD0C0;
 }
-li{
+
+.navbar {
+    background: #00A08A;
+}
+
+.navbar .container-fluid a {
+    color: black;
+}
+
+.navbar li {
     margin: 5px;
-    font-size: 12pt; 
+    font-size: 12pt;
     overflow: hidden;
 }
-button{
-    margin: 5px;
+
+.companies button {
+    width: 22%;
+    margin: 1% 2%;
 }
-.info{
+
+.companies td,
+.companies th {
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.6em;
+}
+
+.info {
     list-style-type: none;
     padding: 0;
 }
-.addInfo{
+
+.addInfo {
     float: right;
-}
-.posts{
-    padding-top: 10px;
-    margin-top: 20px;
-/*    border: 1px solid yellow;*/
-/*    border-bottom: 1px solid yellow;*/
-}
-
-.post{
-    border: 2px solid chocolate;
-    border-radius: 5px;
-}
-.message{
-}
-.post div{
-    background-color: burlywood;
-    padding: 5px;
-}
-
-
-.friends{
-    height: 300px;
-    overflow: auto;
 }

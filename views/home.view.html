@@ -1,0 +1,204 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Hi {{vm.user.user_name}}</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/login"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="col-md-12">
+    <div class="col-md-12 companies">
+        <h3>Companies </h3>
+        <table class="table table-bordered">
+            <tr class="success">
+                <th>Name</th>
+                <th>Earnings</th>
+                <th>All Earnings</th>
+                <th>Settings</th>
+            </tr>
+
+            <tr ng-repeat="compani in vm.user.companies" class="success">
+                <td>
+                    <lable>{{compani.compani_name}}</lable>
+                </td>
+                <td>
+                    <lable>{{compani.compani_earnings}} </lable>
+                </td>
+                <td>
+                    <lable>{{compani.all_compani_earnings}}</lable>
+                </td>
+                <td>
+                    <button class="btn btn-danger companie" ng-click="vm.removeCompani(compani.id)">Delete</button>
+                    <button class="btn btn-primary" ng-click="vm.editCompani(compani)">Edit</button>
+                    <button class="btn btn-success" ng-click="vm.showChildren(compani)">Сhildren</button>
+                </td>
+
+
+            </tr>
+        </table>
+        <button class="btn btn-primary" ng-click="vm.addCompanies()">Add compani</button>
+    </div>
+
+
+
+
+
+
+    <div class="modal fade" id="childrenCompani" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">{{vm.compani.compani_name}}</h3>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr ng-repeat="child in vm.compani.children">
+                            <td>{{child.compani_name}}</td>
+                            <td>{{child.compani_earnings}}</td>
+                            <td>
+                                <button class="btn btn-danger companie" ng-click="vm.removeChild(child.id)">Delete</button>
+                                <button class="btn btn-primary" ng-click="vm.editChild(child)">Edit</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <button class="btn btn-success" ng-click="vm.addChildren()">Add compani</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="addCompani" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form role="form" id="avtoriz">
+                        <div class="form-group">
+                            <label>Name of compani</label>
+                            <input type="text" class="form-control" placeholder="Enter phone" ng-model="vm.compani.compani_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Company Estimated Earnings</label>
+                            <input type="number" class="form-control" placeholder="Enter country" ng-model="vm.compani.compani_earnings">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" ng-click="vm.addMainCompani()" data-dismiss="modal">ADD</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="editCompani" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form role="form" id="avtoriz">
+                        <div class="form-group">
+                            <label>Name of compani</label>
+                            <input type="text" class="form-control" placeholder="Enter phone" ng-model="vm.compani.compani_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Company Estimated Earnings</label>
+                            <input type="number" class="form-control" placeholder="Enter country" ng-model="vm.compani.compani_earnings">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" ng-click="vm.editCompaniInDB()" data-dismiss="modal">ADD</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="modal fade" id="addChild" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form role="form" id="avtoriz">
+                        <div class="form-group">
+                            <label>Name of compani</label>
+                            <input type="text" class="form-control" placeholder="Enter phone" ng-model="vm.child.compani_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Company Estimated Earnings</label>
+                            <input type="number" class="form-control" placeholder="Enter country" ng-model="vm.child.compani_earnings">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" ng-click="vm.addChildCompani()" data-dismiss="modal">ADD</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="editChild" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form role="form" id="avtoriz">
+                        <div class="form-group">
+                            <label>Name of compani</label>
+                            <input type="text" class="form-control" placeholder="Enter phone" ng-model="vm.compani.compani_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Company Estimated Earnings</label>
+                            <input type="number" class="form-control" placeholder="Enter country" ng-model="vm.compani.compani_earnings">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" ng-click="vm.editChildInDB()" data-dismiss="modal">ADD</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--
+    <div class="modal fade" id="friendModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table class="table">
+                        <tr ng-repeat="user in vm.allUsers">
+                            <td>{{user.firstName}} {{user.lastName}}</div>
+                <td>
+                    <button class="btn btn-success" data-dismiss="modal" ng-click="vm.addFriend(user)">Add</button>
+            </div>
+            </td>
+
+
+            </tr>
+            </table>
+            <button class="btn btn-primary" ng-click="vm.update()" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+-->
+
+</div>
+</div>
